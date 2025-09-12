@@ -263,7 +263,7 @@ fed-autoban: "User {} is banned in the current federation (**{}**), and has been
 fed-autoban-chat: "Channel {} is banned in the current federation (**{}**), and has been removed.\n**Reason:** {}\n**Banned on:** {}"
 fed-autoban-subfed: "User {} is banned in subfederation (**{}**) and has been removed\n**Reason:** {}\n**Banned on:** {}"
 fed-autoban-chat-subfed: "Channel {} is banned in subfederation (**{}**) and has been removed\n**Reason:** {}\n**Banned on:** {}"
-fed-autoleave: 'I no longger have permission to ban members in this chat. Leaving fed "{}"(`{}`)'
+fed-autoleave: 'I no longer have permission to ban members in this chat. Leaving fed "{}"(`{}`)'
 fed-owner-cmd: "This command is only for federation owner!"
 fed-subs-join: "Federation **{}** has subscribed to **{}**"
 fed-subs-leave: "Federation **{}** has unsubscribed from **{}**"
@@ -293,13 +293,14 @@ language-help: |
   This bot comes up with multi language support.
   You can choose your language preference!\n
   **Available languages:**
-  - 🇺🇸 English.
-  - 🇮🇩 Indonesia.\n
+  - 🇺🇸 English
+  - 🇮🇩 Indonesia
+  - 🇩🇪 German\n
   Commands:
   ×  /setlang | /lang | /language : set your preferred language.\n
   **Note**
   You can use this command on group chats to change the language setting on that chat.\n
-current-language: "**{}** current language is **{}**\nSelect language bellow to change"
+current-language: "**{}** current language is **{}**\nSelect language below to change"
 language-code-error: An error has occured (No language code)... please contact support
 language-set-succes: Language set to {} successfully
 language-invalid: Invalid language code.\nAvailable language code {}
@@ -339,8 +340,8 @@ no-mute-user: Give me a user to mute
 no-unmute-user: Give me a user to unmute
 mute-success: Successfully muted **{}**!
 mute-success-time: Successfully muted **{}** for {}!
-unmute-done: Unmuted!\nthis user can start talking again.
-cant-mute-admin: i'm not gonna stop an admin from talking!
+unmute-done: Unmuted!\nThis user can start talking again.
+cant-mute-admin: I'm not gonna stop an admin from talking!
 self-muting: Yeahh... I'm not muting myself!
 already-muted: This user is already muted!
 user-not-muted: This user already has the rights to chat!
@@ -363,7 +364,7 @@ notes-invalid-args: |
 note-saved: "Notes saved as `{}`."
 note-list: "**Note List in {}:**\n"
 no-notes: "`No notes saved in this chat!`"
-notes-del-noargs: Sent me a note names to delete
+notes-del-noargs: Send me a note's name to delete
 notes-not-exist: No such notes exist in this chat!
 notes-deleted: "Note `{}` deleted."
 notes-expired: FileID expired, this happened because the file gets removed(cycling) by Telegram.
@@ -376,7 +377,7 @@ purges-help: |
   × /del: Delete message replied to.
   × /purge | /prune : Deletes all messages until the replied to message.
 purge-done: "`Purged {} messages in {} second(s)...`"
-purge-error: "__Can't purge messages more than 2 days__"
+purge-error: "__Can't purge messages older than 2 days__"
 purge-failed: "Can't delete message(s), {}"
 #endregion
 #region reporting
@@ -391,7 +392,7 @@ reporting-help: |
   × @admin: Same as /report.
   \nSimply reply to a message with @admin or /report. I will notify all
   chat admins about the message you replied.
-  **Note** /reports and @admin won't triggered by chat admin.
+  **Note** /report and @admin won't triggered by messages from chat admin.
 report-on: Turned on reporting! You'll be notified whenever a reports happened in group.
 chat-report-on: Turned on reporting! Admins who have turned on reports will be notified when /report or @admin are called.
 report-off: Turned off reporting! You wont get any reports from your moderated group.
@@ -455,7 +456,7 @@ warn-no-data: User {} is clean from any warn.
 warn-limit-no-input: Please provide limit after the command text.
 warn-limit-invalid-input: Invalid input, only accept number and greater than 0.
 warn-limit-done: Warn threshold changed to '{}'.
-rmwarn-no-user: Who should i remove the warn?
+rmwarn-no-user: For whom should I remove the warn?
 rmwarn-done: User {} latest warn has been removed.
 rmwarn-admin: An administrator shouldn't be have warns 🤨
 #endregion
@@ -494,7 +495,7 @@ spampredict-set: "Chat spam prediction turned {}."
 spampredict-view: |
   Spam Prediction Setting: **{}**.
   When enabled will automaticaly delete the message that are detected as a spam.
-spampredict-empty: message/photo text nor caption is empty to predict...
+spampredict-empty: message/photo text or caption is empty to predict...
 spampredict-photo: "Reading photo text with ocr...\nThis might take a while."
 spampredict-photo-failed: "__Failed to read photo text with ocr.__\n\n"
 spampredict-insuficent: |

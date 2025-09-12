@@ -1,0 +1,657 @@
+#region Main
+start-pm: |
+  Hallihallo! Ich heiße **{}**.
+  Möchtest Du erfahren, wie man mich verwendet? Dann benutze /help
+  Tritt unserer [Gruppe](https://t.me/userbotindo) bei, wenn Du Fehler melden möchtest. 🙂
+  Mich gibt es, um die Verwaltung Deiner Gruppen einfacher und weniger langweilig zu machen!
+  **Mit ❤️ verwaltet von :** [UserbotIndo Team](https://t.me/userbotindo)
+  Willst Du mich zu Deiner Gruppe hinzufügen? Drücke einfach auf die Schaltfläche unten!
+help-pm: |
+  Hallo! Ich heiße **{}**.
+  Ich bin ein modularer Gruppenverwaltungs-Bot mit einigen lustigen Extras! Schau Dir Folgendes an, um zu erfahren, wie ich Dir helfen kann.
+  **Wesentliche** verfügbare Befehle:
+  × /start: Startet mich; kann genutzt werden, um zu prüfen, ob ich laufe.
+  × /help: Schreibt Dir diese Direktnachricht.
+  × /setlang: Ändert die Sprache.
+  × /donate: Erhalte Infos darüber, wie Du unterstützen kannst❣️
+
+  Die Einstellungen von Anjani sind auch auf unserem Dashboard konfigurierbar: [Drücke hier](https://userbotindo.com/dashboard?ref=anjani), um das Dashboard zu öffnen.
+privacy: Nachfolgend findest Du unsere Datenschutzrichtlinien.
+start-chat: Hiermit sende ich Dir ein warmes Hallo. Möge Dein Tag ein glücklicher sein!
+help-chat: Kontaktiere mich via Direktnachricht, um die Liste der möglichen Befehle zu erhalten.
+add-to-group-button: Zur Gruppe hinzufügen 👥
+start-help-button: Hilfe & Befehle ❔
+help-chat-button: Hilfe
+status-page-button: Status
+dashboard-button: Dashboard
+back-button: ⬅️ Zurück
+donate: |
+  Schön, dass Du spenden willst!
+  Du kannst uns auf [unserer Webseite](https://userbotindo.com/donate?ref=anjani) spenden.
+  Unser Team besteht ausschließlich aus Freiwilligen. Jede Kleinigkeit hilft dabei, unsere Dienste zu verbessern.
+  Danke für Deine Unterstützung!
+markdown-helper: |
+  Markdown ist ein sehr leistungsstarkes Formatierungswerkzeug, das von Telegramm unterstützt wird. {} enthält einige Verbesserungen, um sicherzustellen, dass gespeicherte Nachrichten korrekt analysiert werden und ermöglicht außerdem, Schaltflächen zu erstellen.\n
+  <b>Unterstütztes Markdown:</b>
+  - <code>__kursiv__</code>: Doppelte Unterstriche erzeugen <i>kursiven</i> Text.
+  - <code>**fett**</code>: Doppelte Sternchen erzeugen <b>fetten</b> Text.
+  - <code>`Quelltext`</code>: Backquotes erzeugen <code>Monospace</code>-Schrift.
+  - <code>~~durchgestrichen~~</code>: Doppelte Tilden erzeugen <del>durchgestrichenen</del> Text.
+  - <code>--unterstrichen--</code> Doppelter Bindestrich erzeugt <u>unterstrichenen</u> Text.
+  - <code>||Spoiler||</code>: Doppelte senkrechte Striche erzeugen <spoiler>Spoiler</spoiler>-Text.
+  - <code>[Beschriftung](irgendeineURL)</code>: Dies erstellt einen Link. In der Nachricht ist die Beschriftung zu sehen.
+  Bsp: <code>[Test](https://www.beispiel.com)</code>
+  - <code>[Schaltflächenbeschriftung](buttonurl:irgendeineURL)</code>: Dies ist die Formatierung zum Erstellen einer Telegram-Schaltfläche. Auf der Schaltfläche wird die Beschriftung angezeigt; es wird auf irgendeineURL weitergeleitet.
+  Bsp: <code>[Diese Schaltfläche öffnet Google](buttonurl:https://www.google.com)</code>
+
+  Wenn Du mehrere Tasten in derselben Zeile haben willst, verwende :same, wie z.B:
+  <code>[eins](buttonurl:https://www.beispiel.com)</code>
+  <code>[zwei](buttonurl:https://www.google.com:same)</code>
+  Dadurch werden zwei Schaltflächen in einer einzelnen Zeile anstelle einer pro Zeile erstellt.
+
+  Denke daran, dass Deine Nachricht einen anderen Text als nur eine Schaltfläche enthalten <b>muss</b>!
+filling-format-helper: |
+  Du kannst den Inhalt eines Textes auch an den Kontext anpassen. Bspw. willst Du den Benutzer erwähnen, der dem Chat beigetreten ist.
+
+  Unterstütztes Format:
+  - `{first}`: Der Vorname des Benutzers.
+  - `{last}`: Der Nachname des Benutzers.
+  - `{fullname}`: Der vollständige Name des Benutzers.
+  - `{username}`: Der Benutzername des Benutzers. Wenn der Benutzer keinen Benutzernamen hat, wird er erwähnt.
+  - `{mention}`: Erwähnt den Benutzer.
+  - `{id}`: Die Benutzer-ID.
+  - `{chatname}`: Der Name des aktuellen Chats.
+  - `{count}`: Die Anzahl der Chat-Mitglieder.
+
+  Beispiel:
+  -> `Hey {first}, wie geht's? Willkommen bei {chatname}`
+#endregion
+#region admin
+admins-button: Admins
+admins-help: |
+  Zu bequem, um jemanden zum Administrator zu befördern oder zu degradieren?
+  Möchtest Du wichtige Infos zum Chat sehen?
+  Alle Dinge im Chatraum wie Admin-Listen, Nachrichten anpinnen oder einen Einladungslink erstellen kann der Bot erledigen.\n
+  × /adminlist: Zeige alle Administratoren im Chat an.\n
+  **Nur für Administartoren:**
+  × /pin: Pinnt unauffällig die Nachricht an, auf die geantwortet wurde - füge loud, notify oder violent an, um Benutzer darüber zu benachrichtigen.
+  × /unpin: Die zuletzt angepinnte Nachricht losheften. Um eine bestimmte Nachricht abzupinnen, antworte auf diese - füge all an, um alle Nachrichten abzupinnen.
+  × /setgpic : Macht das Bild der Nachricht, auf die geantwortet wurde, zum Profilbild der Gruppe.
+  × /zombies : Gelöschte Konten aus der Gruppe entfernen.
+  × /promote <Benutzer-ID/Benutzername> : Gruppenmitglied zum Administrator befördern
+  × /demote <Benutzer-ID/Benutzername> : Administrator zum Mitglied degradieren.
+gpic-no-photo: Schatzi, schenk mir ein Foto! (für die Gruppe)
+gpic-success-changed: Gruppenbild erfolgreich geändert!.
+finding-zombie: "`Bin auf der Suche nach Zombies...`"
+cleaning-zombie: "**{}** `Zombies gefunden und entfernt..!` 🚮"
+zombie-clean: "`Keine Zombies gefunden. Die Gruppe ist sauber...` "
+promote-error-invalid: "**Benutzer-ID ist ungültig**\n`Stelle sicher, dass der Benutzer hier Mitglied ist und gebe den richtigen Benutzernamen bzw. die richtige ID ein!`"
+promote-error-privacy-restricted: "**Die Datenschutzeinstellungen des Benutzers verhindern, dass diese Aktion durchgeführt werden kann.**\n`Stelle sicher, dass er hier Mitglied ist und gebe den richtigen Benutzernamen bzw. die richtige ID ein!`"
+promote-error-self: "__Selbstbeförderung?! Träum weiter...__"
+demote-success: "`Erfolgreich degradiert..`"
+demote-error-perm: "`In diesem Fall bin ich nicht berechtigt. Ich kann nur diejenigen degradieren, die ich selbst zum Administrator befördert habe..`"
+no-demote-user: "`Sag mir doch, wem ich die Admin-Rechte entziehen soll..` 😒"
+demote-error-self: "__Sicher, dass Du Dich selbst degradieren willst?__"
+demote-error-creator: "__Man kann den Inhaber der Gruppe nicht herabstufen__"
+promote-success: "`Beförderung erfolgreich..` ❤️"
+promote-error-perm: "`Dieser Benutzer ist bereits Administartor!`"
+no-promote-user: "`Wen soll ich befördern?\nGib mir einen Benutzer!`"
+no-pinned-message: "__Es wurde keine Nachricht angepinnt__"
+#endregion
+#region Backups
+backups-button: Backups
+backups-help: |
+  **Nur für Administartoren:**\n
+  × /backup: Sicherung der Gruppendaten wie Notizen, Begrüßung, Spam-Schutz, etc. deren Daten in meiner Datenbank gespreichert sind.
+  \n× /restore: Antworte auf die Sicherungsdatei, um die Gruppendaten wiederherzustellen.
+  \Hinweis: Die Sicherungsdatei eines Chats kann nicht in einen anderen Chat wiederhergestellt werden.
+backup-doc: |
+  **Backup erfolgreich:**
+  Chat: `{}`
+  Chat ID: `{}`
+  Zeit: `{}`
+  \nDiese Datei enthält die Sicherung von:{}
+backup-null: Zu diesem Chat sind keine Daten in meiner Datenbank vorhanden.
+backup-data-null: Keine Daten zur Wiederherzustellung erkannt.
+backup-progress: Die Daten des Chats werden gesichert...
+backup-id-invalid: Dies ist ein Backup aus einem anderen Chat! Ich kann diese Daten nicht hier wiederherstellen!
+backup-done: Daten erfolgreich wiederhergestellt
+invalid-backup-file: Scheinbar ist diese Datei keine Sicherung von mir. Ich aus einer solchen Datei nichts wiederherstellen!
+no-backup-file: Bitte antworte auf die gewünschte Backup-Datei!
+restore-progress: Die Daten werden wiederhergestellt...
+#endregion
+#region federations
+federations-button: Föderationen
+federations-help: |
+  Gruppenmanagement. Der Spaß dauert nur solange bis man Spammer bekommt und sie sperren muss. Dann muss man immer mehr verbieten, und es wird unangenehm.
+  Vielleicht hat man sogar mehrere Gruppen und möchten diese Spammer in keiner einzigen davon - Wie kann man damit umgehen? Muss man sie in jeder einzelnen Gruppe manuell sperren?
+
+  Jetzt nicht mehr! Mit Föderationen lässt sich eine Sperre in einem Chat auf all Deine anderen Chats übertragen.
+  Du kannst sogar Administratoren für Förderationen ernennen, sodass die vertrauenswürdigsten Admins über alle Gruppen hinweg sperren können, die geschützt werden sollen.
+
+  **Verfügbare Befehle:**
+  × /newfed <Name>: Erstelle eine neue Föderation mit dem angegebenen Namen.
+  × /delfed <fedID>: Löscht die in Deinem Besitz befindliche Föderation und alle Informationen, die sich darauf beziehen (Dies wird keine gesperrten Nutzer entsperren).
+  × /joinfed <fedID>: Nimmt den aktuellen Chat in die angegebene Föderation auf. (**Nur der Inhaber des Chats kann dies tun**)
+  × /leavefed <fedID>: Die aktuelle Föderation verlassen. (**Nur der Inhaber des Chats kann dies tun**)
+  × /fedinfo: Informationen über die Föderation erhalten.
+  × /fedstats | /fstats: Erhalte Informationen über die Sperre eines Benutzers in einer Föderation.
+  × /myfeds | /myfed: Listet alle Föderationen auf, in denen Du Administrator bist (nur via Direktnachricht).
+
+  **Befehle für Föderationsinhaber:**
+  × /fedpromote | /fpromote: Befördert einen Benutzer zum Admin der Föderation.
+  × /feddemote | /fdemote: Degradiert einen Admin der Föderation.
+  × /fedbackup: Erhalte eine Sicherungskopie der gesperrten Benutzer einer Föderation als CSV-Datei (nur via Direktnachricht).
+  × /fedrestore: Exportiere eine Sicherungsdatei der Föderation, um die Sperrungen wiederherzustellen (nur via Direktnachricht).
+  × /subfed <fedID>: Abonniere eine andere Föderation. Anschließend werden die in der abonnierten Föderation verbotenen Benutzer auch in Deiner Föderation verboten.
+  Hinweis: Dies hat keine Auswirkungen auf die Banliste Deiner Föderation. Die Verbote der abonnierten Föderation werden lediglich vererbt.
+  × /unsubfed <fedID>: Kündigt das Abonnement einer anderen Föderation. Die Sperren aus der anderen Föderation werden damit aufgehoben.
+  × /setfedlog: Legt den aktuellen Chat als Ort für den Log der Föderation fest. Alle Ereignisse der Föderation werden hier geloggt.
+  × /unsetfedlog: Den Log für die Föderation ausschalten. Die Ereignisse der Föderation werden nicht mehr geloggt.
+
+  **Befehle für Admins einer Föderation:**
+  × /fban: Sperrt einen Benutzer oder Kanal für die Föderation des aktuellen Chats.
+  × /unfban: Entsperrt einen Benutzer oder Kanal für die Föderation des aktuellen Chats.
+  × /fadmins: Erhalte eine Liste von Administratoren der Föderation.
+federation-limit: Du kannst nur 1 Föderation besitzen!
+new-federation: |
+  **Neue Föderation wurde erstellt**
+  **Name:** {fed_name}
+  **Fed ID:** {fed_id}\n
+  Verwende folgenden Befehl in einer Gruppe, um diese der Föderation anzuschließen
+  `/joinfed {fed_id}`
+need-fed-name: Bitte nenne auch den Namen der Föderation!
+user-no-feds: Anscheinend besitzt Du noch keine Föderation!\nErstelle eine mittels `/newfed <fed name>`
+del-fed-confirm: |
+  Bist Du sicher, dass Du diese Föderation löschen möchten?
+  Diese Aktion kann nicht rückgängig gemacht werden!
+  Du verlierst Deine gesamte Sperrliste und Deine Föderation wird dauerhaft entfernt!
+  \nBestätige die Löschung von **{}**
+fed-confirm-text: "⚠️ Bestätige die Löschung ⚠️"
+fed-abort-text: Abbrechen
+fed-delete-canceled: Löschen der Föderation abgebrochen
+fed-delete-done: Ich habe Deine Föderation gelöscht!\nAlle Gruppen, die mit **{}** verbunden waren, sind jetzt ohne Föderation.
+fed-cant-two-feds: Ein Chat kann nur zu einer Föderation gehören!
+fed-invalid-id: Bitte gib eine gültige ID einer Föderation an
+fed-invalid-user-id: |
+  Bitte gib eine gültige Benutzer -ID an
+  Nutzung:
+    - `/fstats <user_id> <fed_id>`: Prüft, ob der angegebene Benutzer in der angegebenen Föderation gesperrt ist.
+    - `/fstats <user_id>`: Prüft, ob der angegebene Benutzer in irgendeiner Föderation gesperrt ist.
+    - `/fstats <reply>`: Prüft, ob der Benutzer, auf dessen Nachricht geantwortet wurde, in irgendeiner Föderation gesperrt ist.
+    - `/fstats`: Prüft, ob Du in irgendeiner Föderation gesperrt bist.
+fed-already-connected: Diese Gruppe gehört der Föderation bereits an!
+fed-chat-joined-info: Chat ist der Föderation **{}** beigetreten!
+fed-not-connected: Dieser Chat gehört der Föderation __nicht__ an!
+fed-chat-leave-info: Dieser Chat hat die Föderation **{}** verlassen!
+fed-no-promote-user: Wen soll ich befördern?\nGib mir einen Benutzer!
+fed-no-fed-chat: Der Chat gehört keiner Föderation an!
+fed-owner-only-promote: Nur der Inhaber der Föderation kann einen neuen Administrator ernennen!
+fed-already-owner: Du bist der Inhaber dieser Föderation!
+fed-already-admin: Der Benutzer war bereits Administrator in dieser Föderation!
+fed-promote-done: Erfolgreich befördert!
+fed-no-demote-user: Wen soll ich degradieren?\nGib mir einen Benutzer!
+fed-owner-only-demote: Nur der Inhaber der Föderation kann Administratoren degradieren!
+fed-user-not-admin: Der Benutzer ist kein Administrator in dieser Föderation!
+fed-demote-done: Erfolgreich degradiert!
+fed-specified-id: Bitte gib eine Föderations-ID an!
+fed-info-text: |
+  **Infos über die Föderation:**
+  **Fed ID: **` {}`
+  **Name: **`{}`
+  **Inhaber: **{}
+  **Anzahl der Admins: ** `{}`
+  **Anzahl der gesperrten Benutzer: ** `{}`
+  **Anzahl der gesperrten Kanäle: ** `{}`
+  **Anzahl der angehörigen Gruppen: ** `{}`
+  **Anzahl der Abonnenten: ** `{}`
+fed-info-subscription: "\nFolgende Föderationen wurden abonniert:\n"
+fed-admin-only: Nur Administartoren der Föderation dürfen das!
+fed-admin-text: |
+  **{} Admins:**
+  👑 Inhaber: {}
+fed-no-admin: In dieser Föderation gibt es keinen Administrator!
+fed-no-ban-user: Offenbar verweist Du auf keinen Benutzer
+fed-ban-self: Ich denke nicht, also bin ich nicht! 😝
+fed-ban-owner: Niemand kann den Besitzer der Föderation sperren!
+fed-ban-protected: Nein, ich werde diesen Benutzer nicht sperren!
+fed-ban-info-update: |
+  **Neue föderationsweite Sperre**
+  **Föderation: **{}
+  **Admin der Föderation: **{}
+  **Benutzer: ** {}
+  **Benutzer ID: ** {}
+  **Vorheriger Anlass**: {}
+  **Neuer Anlass**: {}
+fed-ban-info: |
+  **Neue föderationsweite Sperre**
+  **Föderation: **{}
+  **Admin der Föderation: **{}
+  **Benutzer: ** {}
+  **Benutzer ID: ** {}
+  **Anlass**: {}
+fed-user-not-banned: Dieser Benutzer ist nicht gesperrt!
+fed-unban-info: |
+  **Föderationsweite Entsperrung**
+  **Föderation: **{}
+  **Admin der Föderation: **{}
+  **Benutzer: **{}
+  **Benutzer ID: **`{}`
+fed-stat-banned: |
+  Der Benutzer ist in dieser Föderation gesperrt
+  **Anlass: ** {}
+  **Gesperrt seit: ** {}
+fed-stat-not-banned: Der Benutzer ist in dieser Föderation nicht gesperrt!
+fed-stat-multi: Dieser Benutzer wurde in diesen Föderationen gesperrt\n
+fed-stat-multi-info: " -  **{}**(`{}`)\n    **Anlass: **{}\n"
+fed-stat-multi-not-banned: Dieser Benutzer ist in keiner Föderation gesperrt!
+fed-backup-empty: Die Sicherungsdatei ist leer...
+fed-restore-done: Backup wiederhergestellt
+fed-myfeds-owner: "Du bist der **Besitzer** dieser Föderation:\n"
+fed-myfeds-admin: "\nDu bist **Admin** in der folgenden Föderation:\n"
+fed-myfeds-no-admin: Anscheinend bist Du in keiner Föderation Administartor
+fed-set-log-args: "Bitte gib die ID der entsprechenden Föderation an, um den Log für diese in den Kanal zu schreiben.\nz.B: `/setfedlog fedID`"
+fed-not-found: Föderation nicht gefunden!
+fed-check-identity: Bitte beantrage beim Inhaber der Föderation eine Bestätigung für diese Aktion, indem Du auf diese Schaltfläche drückst.
+fed-log-set-group: "Dieser Chat wurde für die Logs von **{name}** festgelegt"
+fed-log-set-chnl: "Dieser Kanal wurde für die Logs der Föderation **{}** festgelegt.\nAlle Aktionen, die die Föderation betreffen, werden hier protokolliert."
+fed-invalid-identity: Der Benutzer, der auf Bestätigungsschaltfläche geklickt hat, war nicht der Inhaber der Föderation.\nNur der Inhaber kann das Log der Föderation festlegen.
+fed-log-unset: Das Log der Föderation **{}** wurde nicht eingestellt.
+fed-autoban: "Benutzer {} wurde in der hiesigen Föderation (**{}**) gesperrt und wurde entfernt.\n**Anlass:** {}\n**Gesperrt seit:** {}"
+fed-autoban-chat: "Kanal {} ist in der hiesigen Föderation (**{}**) gesperrt und wurde entfernt.\n**Anlass:** {}\n**Gesperrt seit:** {}"
+fed-autoban-subfed: "Benutzer {} ist in der Sub-Föderation (**{}**) gesperrt und wurde entfernt.\n**Anlass:** {}\n**Gesperrt seit:** {}"
+fed-autoban-chat-subfed: "Kanal {} ist in der Sub-Föderation (**{}**) gesperrt und wurde entfernt.\n**Anlass:** {}\n**Gesperrt seit:** {}"
+fed-autoleave: 'Ich habe keine Erlaubnis mehr, Mitglieder in diesem Chat zu verbieten. Er verlässt daher die Föderation "{}"(`{}`)'
+fed-owner-cmd: "Dieser Befehl ist nur dem Inhaber der Föderation erlaubt!"
+fed-subs-join: "Föderation **{}** hat jetzt **{}** abonniert."
+fed-subs-leave: "Föderation **{}** hat das Abonnement von **{}** beendet."
+#endregion
+#region filters
+filters-button: Filter
+filters-help: |
+  **Nur für Admins:**
+  × /filters: Erhalte eine Liste aller in diesem Chat aktiven Filter.
+  × /filter <Schlüsselwort> <Antworttext>: Füge dem Chat einen Filter mit dem angegebenen Schlüsselwort hinzu. Der Bot beantwortet die Nachricht, wenn das Schlüsselwort erwähnt wird.
+  × /stop <Schlüsselwort>: Beendet den Filter mit dem angegebenen Schlüsselwort.
+  × /rmallfilters: Beendet alle Filter in diesem Chat.
+
+  Filter können auch mit Markdown verwendet werden (siehe /markdownhelp).
+filters-added: "`{}` wurde erfolgreich als Filter hinzugefügt."
+filters-removed: "`{}` wurde erfolgreich aus den Filtern entfernt."
+filter-help: "Nutzung: `/filter <Auslöser> <Text>`."
+filter-stop-help: "Nutzung: `/stop <Auslöser>`."
+filters-chat-nofilter: In diesem Chat sind keine Filter vorhanden.
+filters-chat-nokeyword: "Es gibt keinen Filter namens `{}` in diesem Chat."
+filters-rmall: "{} Filter wurden erfolgreich aus dem Chat entfernt."
+filters-list: "Filter in **{}**:\n"
+#endregion
+#region language
+language-button: Sprache
+language-help: |
+  Dieser Bot unterstützt mehrere Sprachen.
+  Du kannst Deine Sprachpräferenz auswählen!\n
+  **Verfügbare Sprachen:**
+  - 🇺🇸 Englisch
+  - 🇮🇩 Indonesisch
+  - 🇩🇪 Deutsch\n
+  Commands:
+  ×  /setlang | /lang | /language : Stelle Deine bevorzugte Sprache ein.\n
+  **Hinweis**
+  Diesen Befehl kannst Du in einem Gruppenchat verwerden, um die Spracheinstellung in diesem zu ändern.\n
+current-language: "**{}**s aktuelle Sprache ist **{}**\nWähle zum Ändern unten eine Sprache aus."
+language-code-error: Ein Fehler ist aufgetreten (kein Sprachcode)... bitte kontaktiere den Support.
+language-set-succes: Sprache wurde erfolgreich auf {} gestellt
+language-invalid: Ungültiger Sprachcode.\nVerfügbarer Sprachcode {}
+#endregion
+#region misc
+miscs-button: Sonstiges
+miscs-help: |
+  Ein Krimskrams-Modul für kleine, einfache Befehle, die sonst nirgendwo reinpassen.\n
+  **Befehle:**
+  ×  /id : Erhalte die Benutzer-ID, Nachrichten-ID, Chat-ID und viele weitere.
+  ×  /info: Erhalte Infos über den Benutzer.
+  ×  /ping : Ermittle die Latenzzeit des Bots.
+  ×  /paste <Flaggen> : Füge eine Textdatei in einen Pastebin-Dienst ein.
+      Flaggen:
+          [-h, hastebin] = verwende hastebin.\n
+          [-k, katbin] = verwende katbin. \n
+          [-s, spacebin] = verwende spacebin.
+paste-wait: "`Einfügen in {}...`"
+paste-succes: "**Erfolgreich in {} eingefügt..!**"
+paste-fail: "`Konnte {} nicht erreichen!`\nMit den Flaggen __[-s, stashbin, hastebin, -h, spacebin]__ kannst Du einen anderen Dienst nutzen."
+paste-invalid: "Ungültige '**{}**' Flagge.\nVerfügbare Flaggen: __[-s, stashbin, hastebin, -h, spacebin]__"
+#endregion
+#region mute
+muting-button: Stummschalten
+muting-help: |
+  Einige Spammer, Nervensägen oder Trolle müssen diszipliniert werden.
+  Mit diesem Plugin kannst einfach jemanden stummschalten.\n
+  **Nur für Administartoren:**
+  × /mute <Benutzername>: Schalte ein Mitglied in der Supergruppe stumm.
+  × /mute <Benutzername> X<m|h|d>: Stelle ein Mitglied temporär für X Zeiteinheiten stumm.
+  × /unmute <Benutzername>: Hebt die Stummschaltung für ein Mitglied auf.\n
+  Beispiel für temporäre Stummschaltung:
+  m = Minuten, h = Stunden und d = Tage.
+  `/mute @benutzername 2h`; schaltet einen Benutzer zwei Stunden lang stumm.
+invalid-time-flag: Ungültige Zeiteinheit angegeben. Erwartet wurde m,h, oder d.
+no-mute-user: Gib mir einen Benutzer zum Stummschalten
+no-unmute-user: Gib mir einen Benutzer, für den die Stummschaltung aufgehoben werden soll
+mute-success: Der Benutzer **{}** wurde erfolgreich stummgeschaltet!
+mute-success-time: Der Benutzer **{}** wird erfolgreich für {} stummgeschaltet!
+unmute-done: Stummschaltung aufgehoben!\nDieser Nutzer kann wieder schreiben.
+cant-mute-admin: Ich werde einen Admin nicht vom Schreiben abhalten!
+self-muting: Ja nee, ist klar! Ich werde mich nicht selbst stummschalten!
+already-muted: Dieser Benutzer ist bereits stummgeschaltet!
+user-not-muted: Dieser Benutzer hat bereits das Rederecht!
+#endregion
+#region note
+notes-button: Notizen
+notes-help: |
+  \nSpeichere Daten als Notizen für die zukünftige Nutzung!\n
+  **Befehle für Benutzer:**
+  × /get <Notizname>: Erhalte die Notiz mit dem angegebenen Namen.
+  × #<Notizname>: gleichbedeutend zu /get.
+  × /notes: Listet alle im aktuellen Chat gespeicherten Notizen auf.\n
+  **Admin commands:**
+  × /save <Notizname> <Text der Notiz>: Speichert eine neue Notiz namens "<Notizname>". Das Beantworten einer Nachricht speichert die beantwortete Nachricht.
+  × /clear <Notizname> | /delnote <Notizname>: Löscht die entsprechende Notiz, falls sie existiert.
+  \nSiehe /markdownhelp für mehr Informationen über die Formatierung von Notizen.
+notes-invalid-args: |
+  Du musst auf eine Nachricht antworten, die einen Text enthält, oder einen Text hinter den Notiznamen schreiben.
+  Bsp.: /save <Notizname> <Textnachricht / Antwort auf Textnachricht>
+note-saved: "Notiz gespeichert als `{}`."
+note-list: "**Liste der Notizen in {}:**\n"
+no-notes: "`In diesem Chat sind keine Notizen gespeichert!`"
+notes-del-noargs: Schicke mir einen Notiznamen zum Löschen
+notes-not-exist: In diesem Chat gibt es keine solchen Notizen!
+notes-deleted: "Notiz `{}` wurde gelöscht."
+notes-expired: Datei-ID abgelaufen; das passiert, wenn die Datei von Telegram gelöscht wird.
+#endregion
+#region purge
+purges-button: Aufräumen
+purges-help: |
+  Mit dieser Funktion lassen sich Nachrichten leicht löschen.\n
+  **Nur für Administartoren:**
+  × /del: Löscht die beantwortete Nachricht.
+  × /purge | /prune : Entfernt alle Nachrichten bis zur beantworteten.
+purge-done: "`{} Nachrichten in {} Sekunde(n) entfernt...`"
+purge-error: "__Nachrichten, die älter als zwei Tage sind, können nicht gelöscht werden__"
+purge-failed: "Kann Nachricht(en) nicht löschen, {}"
+#endregion
+#region reporting
+reporting-button: Meldefunktion
+reporting-help: |
+  **Befehle für Administartoren:**
+  × /reports <yes/no/on/off>: Meldefunktion aktivieren/deaktivieren.
+    - Wenn Du das im Chat ausgeführst, wird die Einstellung für diesen geändert.
+    - Wenn Du das in den Direktnachrichten ausgeführst, werden Deine Einstellungen für den Empfang von Meldungen geändert.
+  \n**Befehle für Benutzer:**
+  × /report: Antworte auf eine Nachricht, um sie den Admins zur Überprüfung zu melden.
+  × @admin: gleichbedeutend zu /report.
+  \nAntworte einfach auf eine Nachricht mit @admin oder /report. Ich werde dann alle Administratoren über die beantwortete Nachricht informieren.
+  **Hinweis** /report und @admin werden nichts auslösen, wenn die Nachricht von einem Administrator stammt.
+report-on: Meldefunktion eingeschaltet! Du wirst immer benachrichtigt, wenn etwas in der Gruppe gemeldet wurde.
+chat-report-on: Meldefunktion eingeschaltet! Administratoren, die Meldungen eingeschaltet haben, werden benachrichtigt, sobald /report oder @admin verwendet werden.
+report-off: Meldefunktion ausgeschaltet! Du wirst keine Berichte von Deiner moderierten Gruppe mehr erhalten.
+chat-report-off: Meldefunktion ausgeschaltet! Administratoren werden nicht benachstichtigt, wenn /report oder @admin verwendet wird.
+report-setting: "Die Einstellung für die Meldefunktion in diesem Chat ist: `{}`"
+chat-report-setting: "Deine Einstellung für die Meldefunktion ist: `{}`"
+no-report-user: Wer soll gemeldet werden??
+cant-report-me: Ich werde mich nicht selbst melden!!
+cant-report-admin: Weshalb sollte ich einen Gruppenadministrator melden??
+cant-self-report: Warte... Warum meldest Du Dich selbst?
+report-notif: Benutzer {} wurde an die Administartoren gemeldet!
+report-admin-format: |
+  **Meldung aus: {chat}**
+  × **Meldung von: ** {by_user} `{by_user_id}`
+  × **Gemeldeter Benutzer: ** {reported_mention} `{reported_id}`
+user-not-in-chat: Der Benutzer, den Du zu melden versuchst, ist nicht mehr in dieser Gruppe.
+#endregion
+#region restrictions
+restriction-button: Restriktionen
+restriction-help: |
+  Benutzer, die spammen, trollen oder stören müssen eingeschränkt werden.
+  Mit diesem Plugin können Administratoren unfreundliche Mitglieder einfach einschränken.\n
+  **Nur für Administartoren:**
+  × /kick <Benutzername> [Anlass]: Wirft einen Benutzer raus. (via Benutzername oder Antwort)
+  × /ban <Benutzername> [Anlass]: Sperrt einen Benutzer. (via Benutzername oder Antwort)
+  × /sban <Benutzername>: Sperrt einen Benutzer. (via Benutzername oder Antwort)
+  × /unban <Benutzername>: Entsperrt einen Benutzer. (via Benutzername oder Antwort)
+  × /kickme: Du bist von der Gruppe gelangweilt? Weise den Bot an, Dich rauszuwerfen.
+  × /warn <Benutzername> [Anlass]: Verwarnt einen Benutzer. (via Benutzername oder Antwort)
+  × /warnlimit <Limit>: Legt die Obergrenze für Verwarnungen fest.
+  × /rmwarn <Benutzername>: Entfernt die vorherige Verwarnung an den Benutzer wieder. (via Benutzername oder Antwort)
+
+  **Befehle für Benutzer:**
+  × /warns: Erhalte die Daten über Verwarnungen an einen Benutzer. (via Antwort)
+no-kick-user: Wen soll ich rauswerfen?
+admin-kick: Einen Admin rauswerfen? Das traue ich mich nicht.
+kick-done: "**{}** wurde rausgeworfen!"
+kick-reason: "\nAnlass: {}"
+kickme: "Ok.. `Vielleicht ist bist Du woanders besser aufgehoben`"
+kickme-user-admin: "Über das Schicksal zu sprechen ist schwierig, dieses Wort passt zu Dir.. 🤣"
+kickme-need-perm: Ich würde gerne, aber darf es nicht 🥲
+no-ban-user: Wen soll ich sperren??
+admin-ban: Ich werde keinen Administrator sperren, mach Dich nicht über Dich selbst lustig!
+ban-done: "**{}** wurde gesperrt!"
+ban-reason: "\nAnlass: {}"
+unban-no-user: Gib mir einen Benutzer zum Entsperren
+unban-done: "**{}** entsperrt!"
+warn-keyboard-text: Verwarnung entfernen.
+warn-keyboard-not-admins: Das darfst Du nicht.
+warn-keyboard-removed: Diese Verwarnung ist bereits entfernt.
+warn-keyboard-user-max: Der Benutzer überschreitet bereits die Obergrenze für Verwarnungen.
+warn-removed: |
+  Admin {} hat diese Verwarnung für {} entfernt.
+warn-user-max: Maximale Anzahl an Verwarnungen wurde überschritten, {} wurde aus der Gruppe entfernt.
+warn-message: |
+  Benutzer {} wurde '{}/{}' mal verwarnt.\n\nAnlass: __{}__
+warn-message-list: "Benutzer {} hat '{}/{}' Verwarnungen erhalten.\nDie Anlässe waren:\n{}"
+warn-no-user: Gib mir einen Benutzer, der verwarnt werden soll.
+warn-default-reason: Kein Anlass beschrieben.
+warn-no-data: Benutzer {} ist frei von jeder Verwarnung.
+warn-limit-no-input: Bitte gib die Obergrenze nach dem Befehlstext an.
+warn-limit-invalid-input: Ungültige Eingabe, es werden nur positive ganze Zahlen akzeptiert.
+warn-limit-done: Die Obergrenze für Verwarnungen wurde auf '{}' abgeändert.
+rmwarn-no-user: Für wen soll ich die Verwarnung entfernen?
+rmwarn-done: Die vorherige Verwarnung für Benutzer {} wurde entfernt.
+rmwarn-admin: Ein Administrator sollte keine Verwarnungen haben 🤨
+#endregion
+#region rules
+rules-button: Regeln
+rules-help: |
+  Jeder Chat hat andere Regeln. Dieses Modul soll dabei helfen, diese Regeln klarer zu machen!\n
+  × /rules: Erhalte die Regeln eines Chats.\n
+  **Nur für Admins:**
+  × /setrules <Chat Regeln>: Legt Regeln für den Chat fest.
+  × /clearrules: Löscht gespeicherte Regeln eines Chats.\n
+  **Hinweise**
+  Um einen benutzerdefinierten Link zu den Regeln zu erstellen, benötigst Du lediglich die entsprechende Chat-ID und musst diese in folgenden Link einfügen:
+  `t.me/{username}?start=rules_<Chat-ID>`
+rules-blank-err: Die Regeln können nicht leer sein!
+rules-set: "Die Regeln für den Chat wurden festgelegt!\nLink zu den Regeln: `{}`"
+rules-clear: Die Regeln für den Chat wurden erfolgreich entfernt!
+rules-none: Chat-Regeln konnten nicht abgerufen werden! Keine Datensätze gefunden.
+rules-view-caption: Klicke auf diese Schaltfläche, um die Chat-Regeln anzuzeigen!
+rules-view-pm: "Die Regeln für **{}** sind:\n\n"
+rules-invalid-button: 'Ungültige Chat-ID: "{}". (__Ungültige Syntax__)'
+rules-channel-invalid: Auf den Chat kann nicht zugegriffen werden. Vermutlich liegt das daran, dass ich gesperrt wurde.
+#endregion
+#region spam prediction
+spampredict-button: Spam-Prognose
+spampredict-help: |
+  Zum Hinzufügen entwickeln wir derzeit einen Spam-Schutz mithilfe maschinellen Lernens. Der Bot erkennt und löscht Spam-Nachrichten aus Deinen Chats.
+  Du kannst uns auch helfen, unser Modell zu trainieren, indem Du auf @SpamPredictionLog darüber abstimmst. Du wirst einen Reputationspunkt erhalten, der in Zukunft einige Vorteile bringen wird 😉.\n
+  **Befehle für Admins:**
+  × /spampredict <on/off/yes/no>: Deaktiviert oder aktiviert die Spam-Prognose in Deiner Gruppe.\n
+  Wenn dies aktiviert ist, löscht der Bot die Nachricht automatisch und protokolliert sie bei @SpamPredictionLog.\n
+  **Befehle für Benutzer:**
+  × /predict <Antwort>: Wird für die beantwortete Nachricht prognostizieren, ob es sich um Spam handelt oder nicht*.
+  *Das kostet 10 Reputationspunkte
+spampredict-set: "Die Spam-Prognose wurde für diesen Chat {} gestellt."
+spampredict-view: |
+  Einstellung der Spam-Prognose: **{}**.
+  Wenn diese Option aktiviert ist, werden als Spam erkannte Nachrichten automatisch gelöscht.
+spampredict-empty: Nachrichten-/Fototext oder Bildunterschrift ist leer. Prognone nicht möglich...
+spampredict-photo: "Lesen des Fototexts mittels OCR...\nDies kann eine Weile dauern."
+spampredict-photo-failed: "__Fototext konnte mittels OCR nicht gelesen werden.__\n\n"
+spampredict-insuficent: |
+  Unzureichende Reputation zum Ausführen einer Vorhersage!.
+  Die Vorhersage benötigt {} Reputationspunkte, Du hast bloß {} Reputationspunkte.
+  Du kannst Dir mehr Reputation verdienen, indem Du auf @SpamPredictionLog abstimmst.
+spampredict-failed: Vorhersage fehlgeschlagen...
+spampredict-ban: "{user} wurde gesperrt!"
+spampredict-ban-no-perm: Du hast keine Berechtigung, um Benutzer zu sperren!
+#endregion
+#region spam shield
+spamshield-button: Spam-Schutz
+spamshield-help: |
+  **Befehle für Administartoren:**
+  /spamshield <on/off/yes/no>: Deaktiviert oder aktiviert den Spam-Schutz in Deiner Gruppe.\n
+  Der Spam-Schutz verwendet Combot Anti Spam, @Spamwatch API und globale Sperren, um Spammer so weit wie möglich aus Deinem Chat zu entfernen!
+banned-text: |
+  #SPAM_SCHUTZ\n
+  **Name:** {}
+  **ID:** `{}`
+  **Anlass**: {}
+  **Client:** {}
+  Diese Person wurde als Spambot erkannt und entfernt!
+spamshield-set: "Chat #SPAM_SHIELD ist {}."
+spamshield-view: |
+  Spam-Schutz-Einstellung: **{}**.
+  Der Spam-Schutz ist ein nützliches Plugin, das Dir hilft, Deine Gruppe vor Spammern und Trollen zu schützen.
+#endregion
+#region topic
+topic-button: Themen
+topic-help: |
+  Telegram-Themen unterteilen Deine Gruppe in verschiedene Chats innerhalb der Gruppe (oder des Forums).
+  Mit diesem Plugin kannst Du Deine Themen von Anjani verwalten lassen.
+
+  Ein Thema muss als standardmäßiges "Aktionsthema" festgelegt werden, das dann von Anjani für Begrüßungen und weiteres genutzt wird.
+
+  **Befehle für Administartoren:**
+  × /setactiontopic | /setdefaulttopic: Lege das aktuelle Thema als Aktionsthema dieses Forums fest.
+  × /actiontopic: Erhalte das aktuelle Aktionsthema von diesem Chat.
+  × /createtopic <Themenname>: Erstelle ein neues Thema.
+  × /renametopic <Themenname>: Benenne das aktuelle Thema um.
+  × /opentopic: Öffne das aktuelle Thema wieder.
+  × /closetopic: Schließe das aktuelle Thema.
+  × /deletetopic: Lösche das aktuelle Thema.
+topic-non-topic: Dies ist keine Themengruppe!
+topic-set: Dieses Thema wird ab jetzt für das Aktionsthema verwendet.
+topic-action-general: |
+  Dieser Chat verwendet derzeit das standardmäßige allgemeine Thema als Aktionsthema.
+
+  Bot-Aktionen wie Begrüßungen, Spam-Schutz usw. werden in dieses Thema gesendet.
+topic-action-custom: |
+  Dieser Chat verwendet derzeit {} als Aktionsthema.
+
+  Bot-Aktionen wie Begrüßungen, Spam-Schutz usw. werden an dieses Thema gesendet.
+topic-remove-confirm: |
+  Bist Du sicher, dass Du dieses Thema entfernen möchtest??
+  Diese Aktion kann nicht rückgängig gemacht werden!
+  Du wirst alle Daten des Themas verlieren und Dein Thema wird dauerhaft gelöscht sein!
+topic-closing: Schließe das Thema...
+topic-reopened: Thema wieder geöffnet!
+topic-renamed: Thema in **{}** umbenannt!
+topic-name-missing: Bitte gib einen Namen für das Thema an!
+topic-created: Thema **{}** erstellt!
+#endregion
+#region greetings
+greetings-button: Begrüßungen
+greetings-help: |
+  Die Begrüßungsnachrichten Deiner Gruppe, die auf verschiedene Weise personalisiert werden können.\n
+  **Befehle für Administartoren:**
+  × /setwelcome <Text> | <Antwort> : Legt eine benutzerdefinierte Begrüßungsnachricht fest.
+  × /resetwelcome : Stellt die Begrüßungsnachricht auf Werkseinstellung zurück.
+  × /welcome <on/off> : Begrüßungsnachrichten aktivieren/deaktivieren.
+  × /welcome : Zeigt die aktuelle Begrüßungsnachricht und zugehörige Einstellungen an.\n
+  × /setgoodbye <Text> | <Antwort> : Legt eine benutzerdefinierte Abschiedsnachricht fest.
+  × /resetgoodbye : Stellt die Abschiedsnachricht auf Werkseinstellung zurück.
+  × /goodbye <on/off> : Abschiedsnachrichten aktivieren/deaktivieren .
+  × /goodbye : Zeigt die aktuelle Abschiedsnachricht und zugehörige Einstellungen an.\n
+  × /cleanservice <on/off> : Die Infonachrichten von Telegram „Benutzer ist der Gruppe beigetreten“ automatisch löschen.\n
+  **Hinweise**:\nUm die Nachricht ohne Formatierung zu erhalten, füge am Ende "noformat" hinzu.
+  Beispiel: `/welcome noformat`
+
+  Siehe /markdownhelp und /fillinghelp Für Details zur Formatierung.
+greetings-topic-default: |
+  Forum erkannt. Bot verwendet das standardmäßige Aktionsthema für Begrüßungsnachrichten.
+  Um ein standardmäßiges Aktionsthema festzulegen, lege bitte ein Standard-Aktionsthema fest, wie in diesem Abschnitt beschrieben. [Hilfe zu Themen]({}).
+greetings-no-input: Bitte gib den Text an, den Du festlegen möchtest!
+bot-added: |
+  Hi... Danke für die Einladung!
+  Um alle verfügbaren Befehle zu sehen, schreibe /help.
+default-welcome: Hey {first}, wie geht's?\nWillkommen bei {chatname}
+clean-serv-set: Das Entfernen der Infonachrichten von Telegram wurde {} gestellt.
+welcome-set: Die Begrüßungen für neue Mitglieder wurden {} gestellt.
+welcome-message-expired: Die Datei-ID für die Medien ist abgelaufen.\n__Das könnte daran liegen, dass Du möglicherweise den Bot-Token geändert hast. Bitte füge die Medien für die Begrüßung erneut hinzu.__
+cust-welcome-set: Benutzerdefinierte Begrüßungsnachricht wurde erfolgreich festgelegt!
+reset-welcome: Begrüßungsnachricht wurde erfolgreich auf Werkseinstellung zurückgesetzt!
+unsupported-media-command: "Medien mit Befehlen als Bildunterschriften werden noch nicht unterstützt. **TIPP**: __Vielleicht einfach mit dem Befehl auf die Medien antworten?__"
+view-welcome: |
+  **Dieser Chat hat folgende Begrüßungseinstellung:**
+  `Neue Mitglieder begrüßen` = `{}`
+  `Entferne Telegram-Infonachrichten` = `{}`
+  Und die Bergüßungsnachricht dieses Chats ist:
+default-goodbye: "{first} hat den Chat verlassen!"
+goodbye-set: Verabschiedung wurde {} gestellt, wenn Mitglieder den Chat verlassen.
+cust-goodbye-set: Benutzerdefinierte Abschiedsnachricht erfolgreich festgelegt!
+reset-goodbye: Die Begrüßungsnachricht wurde erfolgreich auf den Standard zurückgesetzt!
+view-goodbye: |
+  **Dieser Chat hat folgende Abschiedseinstellung:**
+  `Verabschiedungen` = `{}`
+  `Entferne Telegram-Infonachrichten` = `{}`
+  Und die Abschiedsnachricht dieses Chats ist:
+greetings-button-only-error: Die Begrüßungsnachricht kann nicht lediglich Schaltflächen enthalten!
+#endregion
+#region lockings
+lockings-button: Sperren
+lockings-help: |
+  Dieses Plugin hilft Dir, die Berechtigungen/Inhaltstypen Deiner Gruppe für Nicht-Admins zu sperren/freizuschalten.\n
+  **Befehle für Administartoren:**
+  × /lock <Inhaltstypen/Berechtigungen>: Sperrt die angegebenen Inhaltstypen/Berechtigungen für Nicht-Admins.\n
+  × /unlock <Inhaltstypen/Berechtigungen>: Wird die gesperrten Inhaltstypen/Berechtigungen in der Gruppe entsperren.\n
+  × /locktypes : Zeige die Inhaltstypen/Berechtigungen, welche Du sperren/entsperren kannst.\n
+  × /locks : Zeige gesperrte Inhaltstypen/Berechtigungen.\n
+lockings-types-available: "**Sperrbare Typen/Berechtigungen**:\n"
+lockings-types-perm: "**Aktuell gesperrte Chat-Berechtigungen in diesem Chat für Nicht-Administratoren**:\n"
+lockings-types-list: "**Aktuell gesperrte Typen in diesem Chat für Nicht-Administratoren**:\n"
+lockings-types-list-empty: "**Keine aktive Sperre in diesem Chat.**"
+lockings-type-required: Bitte gib einen Inhaltstyp für die Sperre an.
+lockings-type-locked: "'`{lock_type}`' ist bereits gesperrt."
+lockings-type-invalid: "'`{lock_type}`' ist kein gültiger Inhaltstyp."
+lockings-type-done: "'`{lock_type}`' erfolgreich gesperrt."
+lockings-bots-not-admin: Ich sehe einen Bot, der nicht vom Inhaber hinzugefügt wurde und gesperrt ist.\nAber ich kann ihn nicht rauswerfen, weil ich kein Admin bin.
+lockings-failed-to-delete: "'`{lock_type}`' ist gesperrt, aber ich kann die Nachricht nicht löschen.\nVermutlich liegt das daran, dass ich kein Admin bin."
+lockings-admin-required: |
+  Für diese Funktion benötige ich Administratorrechte.\n
+  -> __{message}__
+lockings-not-modified: "Die Einstellung der Sperren in diesem Chat wurden nicht verändert.\nScheinbar war diese Einstellung bereits zuvor so konfiguiert."
+unlockings-type-required: Bitte gibt einen Inhaltstyp zum Entsperren an.
+unlockings-type-unlocked: "'`{unlock_type}`' ist nicht gesperrt."
+unlockings-type-invalid: "'`{unlock_type}`' ungültiger Inhaltstyp zum Entsperren."
+unlockings-type-done: "Die Sperre für '`{unlock_type}`' wurde erfolgreich aufgehoben."
+#endregion
+#region common-error
+error-its-myself: "Ich kann nichts für mich selbst machen 😒"
+err-chat-groups: Dieser Befehl ist für Gruppen bestimmt, nicht für die Direktnachrichten!
+err-chat-private: Dieser Befehl ist ausschließlich für Direktnachrichten bestimmt!
+error-no-rights: "Du hast nicht die für diesen Befehl nötige Berechtigung!"
+err-not-participant: "Dieser Benutzer ist kein Mitglied dieses Chats!"
+err-invalid-option: Ungültige Option!
+err-invalid-username-id: "`Ungültiger Benutzername oder Benutzer-ID!`"
+error-reply-to-message: Du musst auf eine Nachricht antworten!
+err-yes-no-args: Verwende entweder on/yes oder off/no
+err-peer-invalid: "**PEER_ID_INVALID**\nAnscheinend habe ich keinen Zugriff auf diesen Benutzer oder die gegebene ID ist ungültig."
+err-api-down: Die API ist offline; bitte versuche es später erneut..
+err-group-creator-cmd: Nur Inhaber der Gruppe kann diesen Befehl verwenden!
+err-invalid-pid: Ungültige ID!
+err-anonymous: Du bist im anonymen Modus...\n\n__Deaktiviere diesen zuerst.__
+err-not-admin: Du bist kein Administrator dieser Gruppe...
+err-perm: Wir sind kein Administrator dieser Gruppe.
+err-unexpected: "Ein unerwarteter Fehler trat auf.! \n\n**Error:** `{}`"
+err-msg-format-parsing: "**Fehler beim Auswerten der Formatierung der Nachricht!**\n**Fehler bei:** `{err}`."
+err-im-not-admin: "Ich bin hier kein Administrator! Ich muss Administrator sein, um das zu erledigen."
+err-illegal-trigger: "Nicht erlaubtes Zeichen im Auslöser!\n'.' und '$' sind nicht erlaubt"
+#endregion
