@@ -369,6 +369,37 @@ notes-not-exist: No such notes exist in this chat!
 notes-deleted: "Note `{}` deleted."
 notes-expired: FileID expired, this happened because the file gets removed(cycling) by Telegram.
 #endregion
+#region open forum
+rooms-button: Rooms
+rooms-help: |
+  All group members can create rooms in which every user can write hist statement about the specified topic.
+  **User commands:**
+  × /newroom <title>: Creates a new room with the given name.
+  × /roomname <title>: Changes the name of the room in which the command is sent.
+  × /roomdesc <topic description>: Changes the description of the topic in the current room.\n
+  **Admin commands**
+  × /deleteroom Removes the current room including the related database entries.
+rooms-backup-message: The message of {username} has been deleted. You can only post one message in the room. Here is a backup.
+rooms-non-topic: Rooms are only available in forum groups with topics.
+rooms-non-room: This topic is not a room.
+rooms-name-missing: Please give a name for the room.
+rooms-desc-missing: Please give a description of the room's topic.
+rooms-description: |
+  **Topic:** {room_desc}\n\n
+  ℹ️ Every user is only allowed to write a single statement in this room.
+  __Room created by {username}__
+rooms-standard-description: |
+  Set the description of the topic with `/roomdesc ``<Text>`
+  Change the name/title of the room with `/roomname`
+rooms-created: New room was created.
+rooms-renamed: Room was renamed.
+rooms-delete-button: ⚠️ Delete
+rooms-cancel-button: Cancel
+rooms-remove-confirm: |
+  Are you sure you want to remove this room?
+  This action cannot be undone!
+  You will loose your entire room data and your it will be permanently lost!
+#endregion
 #region purge
 purges-button: Purges
 purges-help: |

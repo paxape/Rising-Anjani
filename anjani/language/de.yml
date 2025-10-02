@@ -367,6 +367,37 @@ notes-not-exist: In diesem Chat gibt es keine solchen Notizen!
 notes-deleted: "Notiz `{}` wurde gelöscht."
 notes-expired: Datei-ID abgelaufen; das passiert, wenn die Datei von Telegram gelöscht wird.
 #endregion
+#region rooms
+rooms-button: Räume
+rooms-help: |
+  Alle Gruppenmitglieder können Räume erstellen, in denen jeder Nutzer jeweils seine Stellungnahme zum festgelegten Thema schreiben kann.
+  **Befehle für Benutzer:**
+  × /newroom <Titel des Raums>: Erstellt einen neuen Raum mit dem angegebenen Namen.
+  × /roomname <Titel des Raums>: Name des Raums ändern, in dem der Befehl gesendet wird.
+  × /roomdesc <Beschreibung des Themas>: Themenbeschreibung des aktuellen Raums ändern.\n
+  **Befehle für Administartoren**
+  × /deleteroom Löscht den aktuellen Raum einschließlich der zugehörigen Datenbankeinträge.
+rooms-backup-message: Die Nachricht von {username} wurde gelöscht. Im Raum ist nur eine Nachricht pro Benutzer erlaubt. Hier ist ein Backup.
+rooms-non-topic: Räume sind nur in Forum-Gruppen mit Themen möglich.
+rooms-non-room: Dieses Thema ist kein Raum.
+rooms-name-missing: Bitte gib einen Namen für den Raum an.
+rooms-desc-missing: Bitte gib eine Beschreibung des Themas in diesem Raum an.
+rooms-description: |
+  **Thema:** {room_desc}\n\n
+  ℹ️ Jeder Nutzer darf in diesem Raum nur eine einzelne Stellungnahme schreiben.
+  __Raum erstellt von {username}__
+rooms-standard-description: |
+  Beschreibung des Themas hinzufügen bzw. ändern mit `/roomdesc ``<Text>`
+  Name/Titel des Raumes ändern mit `/roomname`
+rooms-created: Ein neuer Raum wurde erstellt.
+rooms-renamed: Der Raum wurde umbenannt.
+rooms-delete-button: ⚠️ Löschen
+rooms-cancel-button: Abbrechen
+rooms-remove-confirm: |
+  Bist Du sicher, dass Du diesen Raum entfernen möchtest??
+  Diese Aktion kann nicht rückgängig gemacht werden!
+  Du wirst alle Daten des Raumes verlieren und er wird dauerhaft gelöscht sein!
+#endregion
 #region purge
 purges-button: Aufräumen
 purges-help: |
