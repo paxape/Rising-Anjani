@@ -1,4 +1,4 @@
-"""Anjani example-plugin"""
+"""Rooms plugin"""
 # Copyright (C) 2020 - 2023  UserbotIndo Team, <https://github.com/userbotindo.git>
 #
 # This program is free software: you can redistribute it and/or modify
