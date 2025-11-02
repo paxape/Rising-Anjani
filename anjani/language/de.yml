@@ -13,7 +13,7 @@ help-pm: |
   × /start: Startet mich; kann genutzt werden, um zu prüfen, ob ich laufe.
   × /help: Schreibt Dir diese Direktnachricht.
   × /setlang: Ändert die Sprache.
-  × /donate: Erhalte Infos darüber, wie Du unterstützen kannst❣️
+  × /donate: Erhalte Infos darüber, wie Du Unterstützung leisten kannst❣️
 
   Die Einstellungen von Anjani sind auch auf unserem Dashboard konfigurierbar: [Drücke hier](https://userbotindo.com/dashboard?ref=anjani), um das Dashboard zu öffnen.
 privacy: Nachfolgend findest Du unsere Datenschutzrichtlinien.
@@ -47,7 +47,7 @@ markdown-helper: |
   Wenn Du mehrere Tasten in derselben Zeile haben willst, verwende :same, wie z.B:
   <code>[eins](buttonurl:https://www.beispiel.com)</code>
   <code>[zwei](buttonurl:https://www.google.com:same)</code>
-  Dadurch werden zwei Schaltflächen in einer einzelnen Zeile anstelle einer pro Zeile erstellt.
+  Dadurch werden zwei Schaltflächen in einer einzelnen Zeile anstelle von einer pro Zeile erstellt.
 
   Denke daran, dass Deine Nachricht einen anderen Text als nur eine Schaltfläche enthalten <b>muss</b>!
 filling-format-helper: |
@@ -72,13 +72,13 @@ admins-help: |
   Zu bequem, um jemanden zum Administrator zu befördern oder zu degradieren?
   Möchtest Du wichtige Infos zum Chat sehen?
   Alle Dinge im Chatraum wie Admin-Listen, Nachrichten anpinnen oder einen Einladungslink erstellen kann der Bot erledigen.\n
-  × /adminlist: Zeige alle Administratoren im Chat an.\n
-  **Nur für Administartoren:**
+  × /adminlist: Zeige alle Administratoren des Chats an.\n
+  **Nur für Administratoren:**
   × /pin: Pinnt unauffällig die Nachricht an, auf die geantwortet wurde - füge loud, notify oder violent an, um Benutzer darüber zu benachrichtigen.
   × /unpin: Die zuletzt angepinnte Nachricht losheften. Um eine bestimmte Nachricht abzupinnen, antworte auf diese - füge all an, um alle Nachrichten abzupinnen.
   × /setgpic : Macht das Bild der Nachricht, auf die geantwortet wurde, zum Profilbild der Gruppe.
   × /zombies : Gelöschte Konten aus der Gruppe entfernen.
-  × /promote <Benutzer-ID/Benutzername> : Gruppenmitglied zum Administrator befördern
+  × /promote <Benutzer-ID/Benutzername> : Gruppenmitglied zum Administrator befördern.
   × /demote <Benutzer-ID/Benutzername> : Administrator zum Mitglied degradieren.
 gpic-no-photo: Schatzi, schenk mir ein Foto! (für die Gruppe)
 gpic-success-changed: Gruppenbild erfolgreich geändert!.
@@ -94,14 +94,14 @@ no-demote-user: "`Sag mir doch, wem ich die Admin-Rechte entziehen soll..` 😒"
 demote-error-self: "__Sicher, dass Du Dich selbst degradieren willst?__"
 demote-error-creator: "__Man kann den Inhaber der Gruppe nicht herabstufen__"
 promote-success: "`Beförderung erfolgreich..` ❤️"
-promote-error-perm: "`Dieser Benutzer ist bereits Administartor!`"
+promote-error-perm: "`Dieser Benutzer ist bereits Administrator!`"
 no-promote-user: "`Wen soll ich befördern?\nGib mir einen Benutzer!`"
 no-pinned-message: "__Es wurde keine Nachricht angepinnt__"
 #endregion
 #region Backups
 backups-button: Backups
 backups-help: |
-  **Nur für Administartoren:**\n
+  **Nur für Administratoren:**\n
   × /backup: Sicherung der Gruppendaten wie Notizen, Begrüßung, Spam-Schutz, etc. deren Daten in meiner Datenbank gespreichert sind.
   \n× /restore: Antworte auf die Sicherungsdatei, um die Gruppendaten wiederherzustellen.
   \Hinweis: Die Sicherungsdatei eines Chats kann nicht in einen anderen Chat wiederhergestellt werden.
@@ -115,15 +115,15 @@ backup-null: Zu diesem Chat sind keine Daten in meiner Datenbank vorhanden.
 backup-data-null: Keine Daten zur Wiederherzustellung erkannt.
 backup-progress: Die Daten des Chats werden gesichert...
 backup-id-invalid: Dies ist ein Backup aus einem anderen Chat! Ich kann diese Daten nicht hier wiederherstellen!
-backup-done: Daten erfolgreich wiederhergestellt
-invalid-backup-file: Scheinbar ist diese Datei keine Sicherung von mir. Ich aus einer solchen Datei nichts wiederherstellen!
+backup-done: Daten wurden erfolgreich wiederhergestellt!
+invalid-backup-file: Scheinbar ist diese Datei keine Sicherung von mir. Ich kann aus einer solchen Datei nichts wiederherstellen!
 no-backup-file: Bitte antworte auf die gewünschte Backup-Datei!
 restore-progress: Die Daten werden wiederhergestellt...
 #endregion
 #region federations
 federations-button: Föderationen
 federations-help: |
-  Gruppenmanagement. Der Spaß dauert nur solange bis man Spammer bekommt und sie sperren muss. Dann muss man immer mehr verbieten, und es wird unangenehm.
+  Gruppenmanagement. Der Spaß hält nur solange an bis man Spammer bekommt und sie sperren muss. Dann muss man immer mehr verbieten, und es wird unangenehm.
   Vielleicht hat man sogar mehrere Gruppen und möchten diese Spammer in keiner einzigen davon - Wie kann man damit umgehen? Muss man sie in jeder einzelnen Gruppe manuell sperren?
 
   Jetzt nicht mehr! Mit Föderationen lässt sich eine Sperre in einem Chat auf all Deine anderen Chats übertragen.
@@ -142,9 +142,9 @@ federations-help: |
   × /fedpromote | /fpromote: Befördert einen Benutzer zum Admin der Föderation.
   × /feddemote | /fdemote: Degradiert einen Admin der Föderation.
   × /fedbackup: Erhalte eine Sicherungskopie der gesperrten Benutzer einer Föderation als CSV-Datei (nur via Direktnachricht).
-  × /fedrestore: Exportiere eine Sicherungsdatei der Föderation, um die Sperrungen wiederherzustellen (nur via Direktnachricht).
-  × /subfed <fedID>: Abonniere eine andere Föderation. Anschließend werden die in der abonnierten Föderation verbotenen Benutzer auch in Deiner Föderation verboten.
-  Hinweis: Dies hat keine Auswirkungen auf die Banliste Deiner Föderation. Die Verbote der abonnierten Föderation werden lediglich vererbt.
+  × /fedrestore: Exportiere eine Sicherungsdatei der Föderation, um die Sperren wiederherzustellen (nur via Direktnachricht).
+  × /subfed <fedID>: Abonniere eine andere Föderation. Anschließend werden die in der abonnierten Föderation verbotenen Benutzer auch in Deiner Föderation gesperrt.
+  Hinweis: Dies hat keine Auswirkungen auf die Banliste Deiner Föderation. Die Sperren der abonnierten Föderation werden lediglich vererbt.
   × /unsubfed <fedID>: Kündigt das Abonnement einer anderen Föderation. Die Sperren aus der anderen Föderation werden damit aufgehoben.
   × /setfedlog: Legt den aktuellen Chat als Ort für den Log der Föderation fest. Alle Ereignisse der Föderation werden hier geloggt.
   × /unsetfedlog: Den Log für die Föderation ausschalten. Die Ereignisse der Föderation werden nicht mehr geloggt.
@@ -158,12 +158,12 @@ new-federation: |
   **Neue Föderation wurde erstellt**
   **Name:** {fed_name}
   **Fed ID:** {fed_id}\n
-  Verwende folgenden Befehl in einer Gruppe, um diese der Föderation anzuschließen
+  Verwende den folgenden Befehl in einer Gruppe, um diese der Föderation anzuschließen
   `/joinfed {fed_id}`
 need-fed-name: Bitte nenne auch den Namen der Föderation!
 user-no-feds: Anscheinend besitzt Du noch keine Föderation!\nErstelle eine mittels `/newfed <fed name>`
 del-fed-confirm: |
-  Bist Du sicher, dass Du diese Föderation löschen möchten?
+  Bist Du sicher, dass Du diese Föderation löschen möchtest?
   Diese Aktion kann nicht rückgängig gemacht werden!
   Du verlierst Deine gesamte Sperrliste und Deine Föderation wird dauerhaft entfernt!
   \nBestätige die Löschung von **{}**
@@ -206,7 +206,7 @@ fed-info-text: |
   **Anzahl der angehörigen Gruppen: ** `{}`
   **Anzahl der Abonnenten: ** `{}`
 fed-info-subscription: "\nFolgende Föderationen wurden abonniert:\n"
-fed-admin-only: Nur Administartoren der Föderation dürfen das!
+fed-admin-only: Nur Administratoren der Föderation dürfen das!
 fed-admin-text: |
   **{} Admins:**
   👑 Inhaber: {}
@@ -249,7 +249,7 @@ fed-backup-empty: Die Sicherungsdatei ist leer...
 fed-restore-done: Backup wiederhergestellt
 fed-myfeds-owner: "Du bist der **Besitzer** dieser Föderation:\n"
 fed-myfeds-admin: "\nDu bist **Admin** in der folgenden Föderation:\n"
-fed-myfeds-no-admin: Anscheinend bist Du in keiner Föderation Administartor
+fed-myfeds-no-admin: Anscheinend bist Du in keiner Föderation Administrator
 fed-set-log-args: "Bitte gib die ID der entsprechenden Föderation an, um den Log für diese in den Kanal zu schreiben.\nz.B: `/setfedlog fedID`"
 fed-not-found: Föderation nicht gefunden!
 fed-check-identity: Bitte beantrage beim Inhaber der Föderation eine Bestätigung für diese Aktion, indem Du auf diese Schaltfläche drückst.
@@ -294,7 +294,7 @@ language-help: |
   - 🇺🇸 Englisch
   - 🇮🇩 Indonesisch
   - 🇩🇪 Deutsch\n
-  Commands:
+  Befehle:
   ×  /setlang | /lang | /language : Stelle Deine bevorzugte Sprache ein.\n
   **Hinweis**
   Diesen Befehl kannst Du in einem Gruppenchat verwerden, um die Spracheinstellung in diesem zu ändern.\n
@@ -326,7 +326,7 @@ muting-button: Stummschalten
 muting-help: |
   Einige Spammer, Nervensägen oder Trolle müssen diszipliniert werden.
   Mit diesem Plugin kannst einfach jemanden stummschalten.\n
-  **Nur für Administartoren:**
+  **Nur für Administratoren:**
   × /mute <Benutzername>: Schalte ein Mitglied in der Supergruppe stumm.
   × /mute <Benutzername> X<m|h|d>: Stelle ein Mitglied temporär für X Zeiteinheiten stumm.
   × /unmute <Benutzername>: Hebt die Stummschaltung für ein Mitglied auf.\n
@@ -352,7 +352,7 @@ notes-help: |
   × /get <Notizname>: Erhalte die Notiz mit dem angegebenen Namen.
   × #<Notizname>: gleichbedeutend zu /get.
   × /notes: Listet alle im aktuellen Chat gespeicherten Notizen auf.\n
-  **Admin commands:**
+  **Befehle für Administratoren:**
   × /save <Notizname> <Text der Notiz>: Speichert eine neue Notiz namens "<Notizname>". Das Beantworten einer Nachricht speichert die beantwortete Nachricht.
   × /clear <Notizname> | /delnote <Notizname>: Löscht die entsprechende Notiz, falls sie existiert.
   \nSiehe /markdownhelp für mehr Informationen über die Formatierung von Notizen.
@@ -365,13 +365,13 @@ no-notes: "`In diesem Chat sind keine Notizen gespeichert!`"
 notes-del-noargs: Schicke mir einen Notiznamen zum Löschen
 notes-not-exist: In diesem Chat gibt es keine solchen Notizen!
 notes-deleted: "Notiz `{}` wurde gelöscht."
-notes-expired: Datei-ID abgelaufen; das passiert, wenn die Datei von Telegram gelöscht wird.
+notes-expired: Datei-ID abgelaufen; das passiert, weil die Datei von Telegram gelöscht wird.
 #endregion
 #region purge
 purges-button: Aufräumen
 purges-help: |
   Mit dieser Funktion lassen sich Nachrichten leicht löschen.\n
-  **Nur für Administartoren:**
+  **Nur für Administratoren:**
   × /del: Löscht die beantwortete Nachricht.
   × /purge | /prune : Entfernt alle Nachrichten bis zur beantworteten.
 purge-done: "`{} Nachrichten in {} Sekunde(n) entfernt...`"
@@ -381,7 +381,7 @@ purge-failed: "Kann Nachricht(en) nicht löschen, {}"
 #region reporting
 reporting-button: Meldefunktion
 reporting-help: |
-  **Befehle für Administartoren:**
+  **Befehle für Administratoren:**
   × /reports <yes/no/on/off>: Meldefunktion aktivieren/deaktivieren.
     - Wenn Du das im Chat ausgeführst, wird die Einstellung für diesen geändert.
     - Wenn Du das in den Direktnachrichten ausgeführst, werden Deine Einstellungen für den Empfang von Meldungen geändert.
@@ -400,7 +400,7 @@ no-report-user: Wer soll gemeldet werden??
 cant-report-me: Ich werde mich nicht selbst melden!!
 cant-report-admin: Weshalb sollte ich einen Gruppenadministrator melden??
 cant-self-report: Warte... Warum meldest Du Dich selbst?
-report-notif: Benutzer {} wurde an die Administartoren gemeldet!
+report-notif: Benutzer {} wurde an die Administratoren gemeldet!
 report-admin-format: |
   **Meldung aus: {chat}**
   × **Meldung von: ** {by_user} `{by_user_id}`
@@ -412,10 +412,10 @@ restriction-button: Restriktionen
 restriction-help: |
   Benutzer, die spammen, trollen oder stören müssen eingeschränkt werden.
   Mit diesem Plugin können Administratoren unfreundliche Mitglieder einfach einschränken.\n
-  **Nur für Administartoren:**
+  **Nur für Administratoren:**
   × /kick <Benutzername> [Anlass]: Wirft einen Benutzer raus. (via Benutzername oder Antwort)
   × /ban <Benutzername> [Anlass]: Sperrt einen Benutzer. (via Benutzername oder Antwort)
-  × /sban <Benutzername>: Sperrt einen Benutzer. (via Benutzername oder Antwort)
+  × /sban <Benutzername>: Sperrt einen Benutzer lautlos. (via Benutzername oder Antwort)
   × /unban <Benutzername>: Entsperrt einen Benutzer. (via Benutzername oder Antwort)
   × /kickme: Du bist von der Gruppe gelangweilt? Weise den Bot an, Dich rauszuwerfen.
   × /warn <Benutzername> [Anlass]: Verwarnt einen Benutzer. (via Benutzername oder Antwort)
@@ -461,7 +461,7 @@ rmwarn-admin: Ein Administrator sollte keine Verwarnungen haben 🤨
 rules-button: Regeln
 rules-help: |
   Jeder Chat hat andere Regeln. Dieses Modul soll dabei helfen, diese Regeln klarer zu machen!\n
-  × /rules: Erhalte die Regeln eines Chats.\n
+  × /rules: Erfahre die Regeln eines Chats.\n
   **Nur für Admins:**
   × /setrules <Chat Regeln>: Legt Regeln für den Chat fest.
   × /clearrules: Löscht gespeicherte Regeln eines Chats.\n
@@ -506,7 +506,7 @@ spampredict-ban-no-perm: Du hast keine Berechtigung, um Benutzer zu sperren!
 #region spam shield
 spamshield-button: Spam-Schutz
 spamshield-help: |
-  **Befehle für Administartoren:**
+  **Befehle für Administratoren:**
   /spamshield <on/off/yes/no>: Deaktiviert oder aktiviert den Spam-Schutz in Deiner Gruppe.\n
   Der Spam-Schutz verwendet Combot Anti Spam, @Spamwatch API und globale Sperren, um Spammer so weit wie möglich aus Deinem Chat zu entfernen!
 banned-text: |
@@ -529,7 +529,7 @@ topic-help: |
 
   Ein Thema muss als standardmäßiges "Aktionsthema" festgelegt werden, das dann von Anjani für Begrüßungen und weiteres genutzt wird.
 
-  **Befehle für Administartoren:**
+  **Befehle für Administratoren:**
   × /setactiontopic | /setdefaulttopic: Lege das aktuelle Thema als Aktionsthema dieses Forums fest.
   × /actiontopic: Erhalte das aktuelle Aktionsthema von diesem Chat.
   × /createtopic <Themenname>: Erstelle ein neues Thema.
@@ -561,7 +561,7 @@ topic-created: Thema **{}** erstellt!
 greetings-button: Begrüßungen
 greetings-help: |
   Die Begrüßungsnachrichten Deiner Gruppe, die auf verschiedene Weise personalisiert werden können.\n
-  **Befehle für Administartoren:**
+  **Befehle für Administratoren:**
   × /setwelcome <Text> | <Antwort> : Legt eine benutzerdefinierte Begrüßungsnachricht fest.
   × /resetwelcome : Stellt die Begrüßungsnachricht auf Werkseinstellung zurück.
   × /welcome <on/off> : Begrüßungsnachrichten aktivieren/deaktivieren.
@@ -609,7 +609,7 @@ greetings-button-only-error: Die Begrüßungsnachricht kann nicht lediglich Scha
 lockings-button: Sperren
 lockings-help: |
   Dieses Plugin hilft Dir, die Berechtigungen/Inhaltstypen Deiner Gruppe für Nicht-Admins zu sperren/freizuschalten.\n
-  **Befehle für Administartoren:**
+  **Befehle für Administratoren:**
   × /lock <Inhaltstypen/Berechtigungen>: Sperrt die angegebenen Inhaltstypen/Berechtigungen für Nicht-Admins.\n
   × /unlock <Inhaltstypen/Berechtigungen>: Wird die gesperrten Inhaltstypen/Berechtigungen in der Gruppe entsperren.\n
   × /locktypes : Zeige die Inhaltstypen/Berechtigungen, welche Du sperren/entsperren kannst.\n
